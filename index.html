@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Binary Cocoa How to Play Videos</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+
+    <!-- Styles -->
+    <script src="scripts\tailwind.js"></script>
+
+    <style>
+      video::-webkit-media-controls-fullscreen-button {
+        display: none;
+      }
+
+      .d-none {
+        display: none;
+      }
+    </style>
+
+    <!-- Scripts -->
+    <script defer src="scripts/alpine.js"></script>
+
+    <script>
+      function addVideoListeners() {
+        console.log("adding video listeners");
+        const videoPlayer = document.getElementById("video");
+        const buttons = document.getElementById("buttons");
+        videoPlayer.addEventListener("playing", function () {
+          console.log("playing");
+          buttons.classList.add("d-none");
+        });
+        videoPlayer.addEventListener("pause", function () {
+          console.log("paused");
+          buttons.classList.remove("d-none");
+        });
+      }
+
+      function getVideo(url) {
+        let html =
+          '<video id="video" width="1920" height="1080" src="/videos/' +
+          url +
+          '" controls autoplay crossorigin="anonymous" class="w-full"></video>';
+        console.log(html);
+        return html;
+      }
+    </script>
+  </head>
+
+  <body
+    class="min-h-screen bg-black max-h-full"
+    x-data="{ isNavOpen: true, videoPlayer: '' }"
+    x-on:keydown.escape="isNavOpen=false"
+  >
+    <!-- buttons -->
+    <div
+      id="buttons"
+      class="w-full bg-[#000a] absolute py-2 backdrop-blur-xl z-50"
+      x-show="isNavOpen"
+    >
+      <h1 class="text-2xl font-bold text-center text-white pb-1">
+        How to Play Videos
+      </h1>
+      <div class="text-center">
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#666561] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Jaycatwalk-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Jaycatwalk
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#7ca50d] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Trolls_Eat_Moles-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Trolls Eat Moles
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#2c9791] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Wet_Blanket-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Wet Blanket
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#18851d] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Frog_Chess-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Frog Chess
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#666561] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Slamorama-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Slamorama
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#f11678] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Wrestling_Cubes-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Wrestling Cubes
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#007dc5] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Mondrian_Color_inMotion-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Mondrian
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#000000] text-[#fdd402] border-2 border-yellow-800"
+          @click='videoPlayer = getVideo("How_to_Play_Straight4-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Straight4
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#ca7e0d] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Bullrings-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Bullrings
+        </button>
+        <button
+          class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#a6280f] text-white"
+          @click='videoPlayer = getVideo("How_to_Play_Roo-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+        >
+          Roo
+        </button>
+      </div>
+    </div>
+
+    <!-- Video Player -->
+    <div
+      x-html="videoPlayer"
+      class="bg-black aspect-video max-w-full max-h-[100vh] mx-auto"
+    ></div>
+  </body>
+</html>
