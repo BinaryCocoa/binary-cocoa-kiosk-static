@@ -45,11 +45,21 @@
 
       function getVideo(url) {
         let html =
-          '<video id="video" width="1920" height="1080" src="/videos/' +
+          '<video id="video" width="1920" height="1080" src="videos/' +
           url +
           '" controls autoplay crossorigin="anonymous" class="w-full"></video>';
         console.log(html);
         return html;
+      }
+
+      /**
+       * Undoes whatever AlpineJS does when user presses Esc.
+       */
+      function onEscape() {
+        const buttons = document.getElementById("buttons");
+        setTimeout(() => {
+          buttons.style.display = "";
+        }, 10);
       }
     </script>
   </head>
@@ -64,6 +74,7 @@
       id="buttons"
       class="w-full bg-[#000a] absolute py-2 backdrop-blur-xl z-50"
       x-show="isNavOpen"
+      @keydown.escape.window="onEscape()"
     >
       <h1 class="text-2xl font-bold text-center text-white pb-1">
         How to Play Videos
