@@ -24,7 +24,25 @@
         display: none;
       }
 
-      @keyframes burn-in-swimming {
+      #buttons {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes anti-burn-in-y {
+        0% {
+          transform: translate(-50%, calc(-50% - 150px));
+        }
+        50% {
+          transform: translate(-50%, calc(-50% + 50px));
+        }
+        100% {
+          transform: translate(-50%, calc(-50% - 150px));
+        }
+      }
+
+      @keyframes anti-burn-in-xy {
         0% {
           transform: translate(10px, 0px);
         }
@@ -60,13 +78,31 @@
         }
       }
 
+      #buttons {
+        animation-name: anti-burn-in-y;
+        animation-duration: 900s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        overflow: hidden;
+      }
+
       #button-container,
       h1 {
         position: relative;
-        animation-name: burn-in-swimming;
+        animation-name: anti-burn-in-xy;
         animation-duration: 100s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+      }
+
+      #button-background {
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        right: -20px;
+        bottom: 20px;
+        filter: blur(10px);
+        z-index: -1;
       }
     </style>
 
@@ -110,17 +146,18 @@
   </head>
 
   <body
-    class="min-h-screen bg-black max-h-full"
+    class="min-h-screen bg-black max-h-full flex"
     x-data="{ isNavOpen: true, videoPlayer: '' }"
     x-on:keydown.escape="isNavOpen=false"
   >
     <!-- buttons -->
     <div
       id="buttons"
-      class="w-full bg-[#000a] absolute py-2 backdrop-blur-xl z-50 p-12"
+      class="w-full absolute py-12 z-50 p-12"
       x-show="isNavOpen"
       @keydown.escape.window="onEscape()"
     >
+      <div id="button-background" class="bg-[#000a] backdrop-blur-xl"></div>
       <h1 class="text-2xl font-bold text-center text-white mt-3 mb-1">
         How to Play Videos
       </h1>
@@ -241,7 +278,7 @@
     <!-- Video Player -->
     <div
       x-html="videoPlayer"
-      class="bg-black aspect-video max-w-full max-h-[100vh] mx-auto"
+      class="bg-black aspect-video max-w-full max-h-[100vh] mx-auto flex content-center justify-center w-full"
     ></div>
   </body>
 </html>
