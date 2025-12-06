@@ -23,6 +23,51 @@
       .d-none {
         display: none;
       }
+
+      @keyframes burn-in-swimming {
+        0% {
+          transform: translate(10px, 0px);
+        }
+        10% {
+          transform: translate(0px, 10px);
+        }
+        20% {
+          transform: translate(-10px, 0px);
+        }
+        30% {
+          transform: translate(0px, -10px);
+        }
+        40% {
+          transform: translate(10px, 0px);
+        }
+        50% {
+          transform: translate(10px, 10px);
+        }
+        60% {
+          transform: translate(-10px, 10px);
+        }
+        70% {
+          transform: translate(-10px, -10px);
+        }
+        80% {
+          transform: translate(10px, -10px);
+        }
+        90% {
+          transform: translate(0px, 0px);
+        }
+        100% {
+          transform: translate(10px, 0px);
+        }
+      }
+
+      #button-container,
+      h1 {
+        position: relative;
+        animation-name: burn-in-swimming;
+        animation-duration: 100s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
     </style>
 
     <!-- Scripts -->
@@ -72,14 +117,14 @@
     <!-- buttons -->
     <div
       id="buttons"
-      class="w-full bg-[#000a] absolute py-2 backdrop-blur-xl z-50"
+      class="w-full bg-[#000a] absolute py-2 backdrop-blur-xl z-50 p-12"
       x-show="isNavOpen"
       @keydown.escape.window="onEscape()"
     >
-      <h1 class="text-2xl font-bold text-center text-white pb-1">
+      <h1 class="text-2xl font-bold text-center text-white mt-3 mb-1">
         How to Play Videos
       </h1>
-      <div class="text-center">
+      <div id="button-container" class="text-center mb-4">
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 shadow-lg shadow-[#0003] bg-[#666561] text-white"
           @click='videoPlayer = getVideo("How_to_Play_Jaycatwalk-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
