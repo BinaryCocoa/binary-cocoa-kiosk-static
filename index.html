@@ -42,45 +42,21 @@
         }
       }
 
-      @keyframes anti-burn-in-xy {
+      @keyframes anti-burn-in-x {
         0% {
-          transform: translate(10px, 0px);
-        }
-        10% {
-          transform: translate(0px, 10px);
-        }
-        20% {
-          transform: translate(-10px, 0px);
-        }
-        30% {
-          transform: translate(0px, -10px);
-        }
-        40% {
-          transform: translate(10px, 0px);
+          transform: translateX(15px);
         }
         50% {
-          transform: translate(10px, 10px);
-        }
-        60% {
-          transform: translate(-10px, 10px);
-        }
-        70% {
-          transform: translate(-10px, -10px);
-        }
-        80% {
-          transform: translate(10px, -10px);
-        }
-        90% {
-          transform: translate(0px, 0px);
+          transform: translateX(-15px);
         }
         100% {
-          transform: translate(10px, 0px);
+          transform: translateX(15px);
         }
       }
 
       #buttons {
         animation-name: anti-burn-in-y;
-        animation-duration: 900s;
+        animation-duration: 1231s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         overflow: hidden;
@@ -89,8 +65,8 @@
       #button-container,
       h1 {
         position: relative;
-        animation-name: anti-burn-in-xy;
-        animation-duration: 100s;
+        animation-name: anti-burn-in-x;
+        animation-duration: 800s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
       }
@@ -126,7 +102,7 @@
 
       function getVideo(url) {
         let html =
-          '<video id="video" width="1920" height="1080" src="videos/' +
+          '<video id="video" width="1920" height="1080" src="/videos/' +
           url +
           '" controls autoplay crossorigin="anonymous" class="w-full"></video>';
         console.log(html);
@@ -164,7 +140,7 @@
       <div id="button-container" class="text-center mb-4">
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Jaycatwalk-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Jaycatwalk-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/jaycatwalk.webp"
@@ -175,7 +151,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Trolls_Eat_Moles-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Trolls_Eat_Moles-2560x1440-crf_28.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/trolls-eat-moles.webp"
@@ -186,7 +162,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Wet_Blanket-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Wet_Blanket-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/wet-blanket.webp"
@@ -197,7 +173,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Frog_Chess-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Frog_Chess-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/frog-chess.webp"
@@ -208,7 +184,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Slamorama-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Slamorama-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/slamorama.webp"
@@ -219,7 +195,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Wrestling_Cubes-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Wrestling_Cubes-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/wrestling-cubes.webp"
@@ -230,7 +206,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Mondrian_Color_inMotion-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Mondrian_Color_inMotion-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/mondrian.webp"
@@ -241,7 +217,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Straight4-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Straight4-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/straight4.webp"
@@ -252,7 +228,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Bullrings-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Bullrings-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/bullrings.webp"
@@ -263,7 +239,7 @@
         </button>
         <button
           class="px-4 py-2 m-1 font-bold rounded-2xl hover:cursor-pointer transform transition-all duration-100 ease-in-out hover:scale-110 text-white"
-          @click='videoPlayer = getVideo("How_to_Play_Roo-1080p-30fps-crf30.mp4"); $nextTick(() => addVideoListeners());'
+          @click='videoPlayer = getVideo("How_to_Play_Roo-2560x1440-crf_25.mp4"); $nextTick(() => addVideoListeners());'
         >
           <img
             src="images/roo.webp"
